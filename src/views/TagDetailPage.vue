@@ -25,6 +25,8 @@
 import axios from 'axios'
 import router from '../router'
 
+const REQ_URL = process.env.VUE_APP_REQ_URL
+
 export default {
   name:'TagDetailPage',
   data() {
@@ -34,7 +36,7 @@ export default {
   },
   methods: {
     getTagData() {
-      axios.get(`http://127.0.0.1:8000/api/tags/${this.$route.params.id}/`)
+      axios.get(`${REQ_URL}/api/tags/${this.$route.params.id}/`)
         .then(response => {
           this.tagData = response.data
 

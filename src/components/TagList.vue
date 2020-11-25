@@ -12,6 +12,7 @@
 
 <script>
 import axios from 'axios'
+const REQ_URL = process.env.VUE_APP_REQ_URL
 
 export default {
   name: 'TagList',
@@ -22,7 +23,7 @@ export default {
   },
   methods: {
     setTag() {
-      axios.get('http://127.0.0.1:8000/api/tags/')
+      axios.get(`${REQ_URL}/api/tags/`)
         .then(response => {
           console.log(response.data)
           this.tags = response.data

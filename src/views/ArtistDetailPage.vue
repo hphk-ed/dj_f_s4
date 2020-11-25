@@ -46,6 +46,7 @@ import router from '../router'
 
 const API_KEY = process.env.VUE_APP_YOUTUBE_API_KEY
 const API_URL = 'https://www.googleapis.com/youtube/v3/search'
+const REQ_URL = process.env.VUE_APP_REQ_URL
 
 export default {
   name: 'ArtistDetailPage',
@@ -59,7 +60,7 @@ export default {
   },
   methods: {
     getArtistData() {
-      axios.get(`http://127.0.0.1:8000/api/artist/${this.$route.params.id}`)
+      axios.get(`${REQ_URL}/${this.$route.params.id}`)
         .then(response => {
           // console.log(response.data)
           // console.log(process.env)

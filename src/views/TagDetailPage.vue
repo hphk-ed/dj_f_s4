@@ -25,7 +25,7 @@
 import axios from 'axios'
 import router from '../router'
 
-const REQ_URL = process.env.VUE_APP_REQ_URL
+const DJANGO_URL = process.env.VUE_APP_DJANGO_URL
 
 export default {
   name:'TagDetailPage',
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getTagData() {
-      axios.get(`${REQ_URL}/api/tags/${this.$route.params.id}/`)
+      axios.get(`${DJANGO_URL}/api/tags/${this.$route.params.id}/`)
         .then(response => {
           this.tagData = response.data
 

@@ -26,7 +26,7 @@
 
 <script>
 import axios from 'axios'
-const REQ_URL = process.env.VUE_APP_REQ_URL
+const DJANGO_URL = process.env.VUE_APP_DJANGO_URL
 
 export default {
   name:'MusicDetailPage',
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     getMusic() {
-      axios.get(`${REQ_URL}/api/music/${this.$route.params.id}/`)
+      axios.get(`${DJANGO_URL}/api/music/${this.$route.params.id}/`)
         .then(response => {
           this.music = response.data
         })

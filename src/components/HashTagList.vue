@@ -11,7 +11,7 @@
 <script>
 import axios from 'axios'
 
-const REQ_URL = process.env.VUE_APP_REQ_URL
+const DJANGO_URL = process.env.VUE_APP_DJANGO_URL
 
 export default {
   name: 'HashTagList',
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     setTag() {
-      axios.get(`${REQ_URL}/api/hashtags/`)
+      axios.get(`${DJANGO_URL}/api/hashtags/`)
         .then(response => {
           console.log(response.data)
           this.hashtags = response.data
@@ -36,7 +36,7 @@ export default {
         { name: '#내맘을알아줘' }
       ] 
       datas.forEach(function (data) {
-        axios.post(`${REQ_URL}/api/hashtags/`, data, {})
+        axios.post(`${DJANGO_URL}/api/hashtags/`, data, {})
       })
     }
   },
